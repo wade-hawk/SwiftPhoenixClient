@@ -13,8 +13,7 @@ let package = Package(
   targets: [
     .target(
       name: "SwiftPhoenixClient",
-      dependencies: ["Starscream"],
-      exclude: ["Sources"]
+      dependencies: ["Starscream"]
     ),
   ]
 )
