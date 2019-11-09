@@ -4,14 +4,17 @@ import PackageDescription
 
 let package = Package(
   name: "SwiftPhoenixClient", 
+  products: [
+    .library(name: "SwiftPhoenixClient", targets: ["SwiftPhoenixClient"])
+  ],
   dependencies: [
-    .package(url: "https://github.com/daltoniam/Starscream.git", from: "3.0.6"),
+    .package(url: "https://github.com/daltoniam/Starscream.git", from: "3.1.1"),
   ],
   targets: [
     .target(
       name: "SwiftPhoenixClient",
       dependencies: ["Starscream"],
-      path: "Sources"
+      exclude: ["Sources"]
     ),
   ]
 )
