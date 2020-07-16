@@ -19,6 +19,7 @@
 // THE SOFTWARE.
 
 
+import Foundation
 import Starscream
 
 
@@ -185,6 +186,9 @@ public class Socket {
     urlComponents.queryItems
       = params?.map({ return URLQueryItem(name: $0.key,
                                           value: String(describing: $0.value)) })
+    urlComponents.percentEncodedQuery = urlComponents.percentEncodedQuery?
+        .replacingOccurrences(of: "+", with: "%2B")
+        .replacingOccurrences(of: "/", with: "%2F")
     
     guard let qualifiedUrl = urlComponents.url
       else { fatalError("Malformed URL while adding paramters") }
